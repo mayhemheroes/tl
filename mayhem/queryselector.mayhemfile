@@ -1,0 +1,7 @@
+project: tl
+target: queryselector
+
+cmds:
+  - cmd: /queryselector
+  - cmd: /queryselector_no_inst @@
+    libfuzzer: false

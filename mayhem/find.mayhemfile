@@ -1,0 +1,7 @@
+project: tl
+target: find
+
+cmds:
+  - cmd: /find
+  - cmd: /find_no_inst @@
+    libfuzzer: false

@@ -1,0 +1,7 @@
+project: tl
+target: parse-mut
+
+cmds:
+  - cmd: /parse_mut
+  - cmd: /parse_mut_no_inst @@
+    libfuzzer: false
