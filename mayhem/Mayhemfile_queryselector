@@ -1,0 +1,9 @@
+# libFuzzer target — tl queryselector harness (mayhem/fuzz/fuzz_targets/queryselector.rs).
+# libfuzzer: true → Mayhem drives the in-process libFuzzer entry point.
+# Binary built + copied to /mayhem/queryselector by mayhem/build.sh.
+project: tl
+target: queryselector
+
+cmds:
+  - cmd: /mayhem/queryselector
+    libfuzzer: true

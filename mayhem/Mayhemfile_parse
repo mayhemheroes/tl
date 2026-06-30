@@ -1,0 +1,9 @@
+# libFuzzer target — tl parse harness (mayhem/fuzz/fuzz_targets/parse.rs).
+# libfuzzer: true → Mayhem drives the in-process libFuzzer entry point.
+# Binary built + copied to /mayhem/parse by mayhem/build.sh.
+project: tl
+target: parse
+
+cmds:
+  - cmd: /mayhem/parse
+    libfuzzer: true

@@ -1,0 +1,9 @@
+# libFuzzer target — tl find harness (mayhem/fuzz/fuzz_targets/find.rs).
+# libfuzzer: true → Mayhem drives the in-process libFuzzer entry point.
+# Binary built + copied to /mayhem/find by mayhem/build.sh.
+project: tl
+target: find
+
+cmds:
+  - cmd: /mayhem/find
+    libfuzzer: true

@@ -1,0 +1,49 @@
+# Additive fuzz crate for the Mayhem integration. Lives under mayhem/fuzz/ and is
+# never part of upstream. It depends on the unmodified tl crate at the repo root
+# and exposes the same 4 targets as upstream fuzz/, but the parse_mut harness uses
+# tl's CURRENT mutation API (upstream's own fuzz/fuzz_targets/parse_mut.rs is stale
+# at this pinned commit and no longer compiles against src/). We do not touch
+# upstream files; we only ADD this crate.
+[package]
+name = "tl-mayhem-fuzz"
+version = "0.0.0"
+publish = false
+edition = "2021"
+
+[package.metadata]
+cargo-fuzz = true
+
+[dependencies]
+libfuzzer-sys = "0.4"
+
+[dependencies.tl]
+path = "../.."
+features = ["__INTERNALS_DO_NOT_USE"] # needed for the simd::find target
+
+# Keep this crate out of the root crate's workspace resolution.
+[workspace]
+members = ["."]
+
+[[bin]]
+name = "parse"
+path = "fuzz_targets/parse.rs"
+test = false
+doc = false
+
+[[bin]]
+name = "queryselector"
+path = "fuzz_targets/queryselector.rs"
+test = false
+doc = false
+
+[[bin]]
+name = "parse_mut"
+path = "fuzz_targets/parse_mut.rs"
+test = false
+doc = false
+
+[[bin]]
+name = "find"
+path = "fuzz_targets/find.rs"
+test = false
+doc = false

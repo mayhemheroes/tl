@@ -1,0 +1,9 @@
+# libFuzzer target — tl parse_mut harness (mayhem/fuzz/fuzz_targets/parse_mut.rs).
+# libfuzzer: true → Mayhem drives the in-process libFuzzer entry point.
+# Binary built + copied to /mayhem/parse_mut by mayhem/build.sh.
+project: tl
+target: parse-mut
+
+cmds:
+  - cmd: /mayhem/parse_mut
+    libfuzzer: true
